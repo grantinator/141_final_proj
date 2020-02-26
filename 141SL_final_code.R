@@ -78,6 +78,41 @@ ggplot(climate, aes(x=prejudiceenvp, color=NorthCampus)) + geom_density(binwidth
 
 ```
 
+#first gen to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$FIRSTGEN))
+
+#North Campus to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$NorthCampus))
+
+#Sex to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$new_sex))
+
+#Ethnicity to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$Ethnicity))
+
+#comfort to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$overallcomfort))
+
+#Income to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$LowFamilyIncomeIndicator))
+
+#Type of student to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$student_level_application_uplw))
+
+#sexual orientation to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$orientation))
+
+#housing type to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$housing_type))
+
+#employment status to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$EmploymentIndicator))
+
+#How Students entered college to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$UGONLY))
+
+#Disability to GPA
+ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$DisabilityIndicator))
 
 
 
