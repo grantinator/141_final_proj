@@ -27,19 +27,23 @@ chi-square/goodness of fit : when you do  a 4 way. when you hsave 2-3 more signi
 
 ## Conversation with Client: 
 
-~ What would be most useful for you to know : 
+### What would be most useful for you to know :
+
 1. What experiences help students feel like they are part of the community?  
 2. If you can associate kinds of experiences that help successful students that would inform campus affairs. 
 3. Sense of belonging. Did you experience exclusionary behaviour. Model to predict students leaving is an important outcome. 
 4. Students who have discomfort in classes/department and what predicts a student in that class. 
 5. Look at what kinds of experiences seem to enhance or depress some of your outcome variables. What seems to be making a difference for everybody? 
 
-~ Data Collection/Source: 
+### Data Collection/Source: 
+
 Data was collected over time. Survey in 2013. But then data was collected over time and the same questions were not necessarily asked again, that's why you probably see a lot of NA’s. Therefore, if you take 1000 cases it should be significant. 
 
-~ Which questions were mandatory? 
+### Which questions were mandatory? 
+
 How is the data aggregated? Students worked on it. Not native to school. 
 
-~ What are we thinking of doing? 
+### What are we thinking of doing? 
+
 1. We are thinking of finding best predictors of Academic satisfaction/High GPA - downside that students in a certain group. Maybe we should focus on different kinds of experiences they need.  
 2. Some sort of predictive model that looks at what kinds of experiences that enhance or depress some of your outcome variables. What seems to be making a difference for everybody? 
