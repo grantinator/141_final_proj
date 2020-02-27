@@ -29,8 +29,7 @@ chi-square/goodness of fit : when you do  a 4 way. when you hsave 2-3 more signi
 
 ### What would be most useful for you to know :
 
-1. What experiences help students feel like they are part of the community?  
-2. If you can associate kinds of experiences that help successful students that would inform campus affairs. 
+1. The goal is to be able to identify actionable problems that the college can solve to help improve student lives. If you can associate kinds of experiences that help successful students that would inform campus affairs. What experiences help students feel like they are part of the community?
 3. Sense of belonging. Did you experience exclusionary behaviour. Model to predict students leaving is an important outcome. 
 4. Students who have discomfort in classes/department and what predicts a student in that class. 
 5. Look at what kinds of experiences seem to enhance or depress some of your outcome variables. What seems to be making a difference for everybody? 
