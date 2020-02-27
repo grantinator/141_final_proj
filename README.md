@@ -25,21 +25,21 @@ chi-square/goodness of fit : when you do  a 4 way. when you hsave 2-3 more signi
 2. Leaving - Y/N so we can run a logitisic for this 
 
 
-What expereicences help students feel that they are part of the community. If you can assoiciate kinds of experiences that help successful students that would inform campus affairs. Sense of belonging. 
+## Conversation with Client: 
 
-Did you experience exlusionary behaviour. 
+~ What would be most useful for you to know : 
+1. What experiences help students feel like they are part of the community?  
+2. If you can associate kinds of experiences that help successful students that would inform campus affairs. 
+3. Sense of belonging. Did you experience exclusionary behaviour. Model to predict students leaving is an important outcome. 
+4. Students who have discomfort in classes/department and what predicts a student in that class. 
+5. Look at what kinds of experiences seem to enhance or depress some of your outcome variables. What seems to be making a difference for everybody? 
 
-Model to predict students leaving is an important outcome. Students who have discomfrot in classes/department and what predicts a student in that class. 
+~ Data Collection/Source: 
+Data was collected over time. Survey in 2013. But then data was collected over time and the same questions were not necessarily asked again, that's why you probably see a lot of NA’s. Therefore, if you take 1000 cases it should be significant. 
 
-Data was collected over time. Survey in 2013. But then data was collected over time. Can use a 1000 cases which will significant. 
-
-Which questions were mandatory? 
-
-Finding best predictors of Acadmeic satisfaction/High GPA - downside that students in certain group . Maybe we should focus on different kinds 
-
+~ Which questions were mandatory? 
 How is the data aggregated? Students worked on it. Not native to school. 
 
-Q. This is what we see as our predictive model. Look at what kinds of experiences seem to enhance or depress some of your outcome variables. What seems to be making a difference for everybody? 
-
-There is a report online that details the variables - 2013 survey. 
-
+~ What are we thinking of doing? 
+1. We are thinking of finding best predictors of Academic satisfaction/High GPA - downside that students in a certain group. Maybe we should focus on different kinds of experiences they need.  
+2. Some sort of predictive model that looks at what kinds of experiences that enhance or depress some of your outcome variables. What seems to be making a difference for everybody? 
