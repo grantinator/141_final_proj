@@ -44,7 +44,7 @@ correlation[abs(correlation) < THRESHOLD_COR] <- NA
 correlation %>% filter_all(any_vars(!is.na(.)))
 
 
-## Exploratory Data Analysis
+## Exploratory Data Analysis [NISH]
 ```{r}
 
 
@@ -76,7 +76,7 @@ ggplot(climate, aes(x=academicsp, fill=FIRSTGEN)) + geom_density(alpha=0.4,binwi
 ggplot(climate, aes(x=prejudiceenvp, color=NorthCampus)) + geom_density(binwidth = 10) + xlab("Prejudice Experienced ") + ggtitle("Prejudice Experienced by whether a student is firstgen or not")
 
 
-```
+```{r}
 
 #first gen to GPA
 ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$FIRSTGEN))
@@ -114,6 +114,65 @@ ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "coun
 #Disability to GPA
 ggplot(climate, aes(x=climate$gpa)) + geom_histogram(binwidth = 10, stat = "count") + facet_wrap(vars(climate$DisabilityIndicator))
 
+```
 
 
+## Data Crunching [NISH]
+```{r}
 
+table(climate$leaveUCLA)
+
+unique(climate$famincome)
+unique(climate$gpa)
+
+## Dichotamize GPA to be able to run logistic 
+climate$gpa_recoded <- climate$gpa
+climate$gpa_recoded[which(climate$gpa_recoded  == "3.5 and above")] <- "3 and Above"
+climate$gpa_recoded[which(climate$gpa_recoded  == "3 - 3.49")] <- "3 and Above"
+climate$gpa_recoded[which(climate$gpa_recoded  == "Below 2.49")] <- "Below 3"
+climate$gpa_recoded[which(climate$gpa_recoded  == "2.5 - 2.99")] <- "Below 3"
+
+#Recoding as 0's and 1's to run logistic
+climate$gpa_recoded[which(climate$gpa_recoded  == "Below 3")] <- 0
+climate$gpa_recoded[which(climate$gpa_recoded  == "3 and Above")] <- 1
+unique(climate$gpa_recoded)
+
+```
+
+## Bivariate Tests [NISH]
+```{r}
+anova_academicsp <- aov(gpa_recoded ~ academicsp, data = climate)
+summary(anova_academicsp) ##Academic Satisfaction is Super Significant
+
+anova_witnesssex<- aov(gpa_recoded ~ witnessexcluconduct, data = climate)
+summary(anova_witnesssex) ## Wintessed Sexual Conduct is not Significant
+
+anova_overallcomfort <- aov(gpa_recoded ~ overallcomfort, data = climate)
+summary(anova_overallcomfort) ##Overall Comfort is Significant
+
+anova_FIRSTGEN <- aov(gpa_recoded ~ FIRSTGEN, data = climate)
+summary(anova_FIRSTGEN) ##Whether a student is FirstGen or not Comfort is Super Significant
+
+anova_prejudiceenvp<- aov(gpa_recoded ~ prejudiceenvp, data = climate)
+summary(anova_prejudiceenvp) ##Whether a student experiences prejudice or not is NOT Significant
+
+anova_overallclimatep <- aov(gpa_recoded ~ overallclimatep, data = climate)
+summary(anova_overallclimatep) ##Overall Climate is NOT Significant
+
+climate$prejudiceenvp
+# Chi-Square to see if there is a significant difference in GPA between different family income groups
+chisq.test(climate$famincome,climate$gpa_recoded) #Yes there is a significant difference but we dont know between whic groups 
+
+
+```
+
+
+# Modelling attempt [NISH]
+```{r}
+
+## Finding row indices that have NA's for GPA_recoded and Political View 
+unique(c(which(is.na(climate$PoliticalView) == TRUE),which(is.na(climate$gpa_recoded) == TRUE)))
+
+logistic_gpa_academicsp <- glm(gpa_recoded~academicsp, data= climate[-unique(c(which(is.na(climate$academicsp) == TRUE),which(is.na(climate$gpa_recoded) == TRUE))),],family="binomial") ## G
+
+```
