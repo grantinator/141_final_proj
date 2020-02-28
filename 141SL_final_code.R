@@ -196,6 +196,6 @@ recoded_income[which(climate$famincome %in% med_income)] = "Med Income"
 recoded_income[which(climate$famincome %in% high_income)] = "High Income"
 climate = cbind(climate, recoded_income)
 
-logistic_gpa_academicsp_firstg <- glm(gpa_recoded~recoded_income, data=climate[complete.cases(climate[,c("recoded_income", "gpa_recoded")]),], family="binomial") ## G
-summary(logistic_gpa_academicsp_firstg)
+logistic_gpa_income <- glm(gpa_recoded~recoded_income, data=climate[complete.cases(climate[,c("recoded_income", "gpa_recoded")]),], family="binomial") ## G
+summary(logistic_gpa_income)
 
