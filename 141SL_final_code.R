@@ -181,3 +181,21 @@ summary(logistic_gpa_academicsp)
 model_pval = 1 - pchisq(5126.8, 5380)
 model_pval #Model is not significant compared to model containing all variables?
 ```
+       
+#recode (Significant) famincome to have few levels
+new_income_lvls = c("Low Income", "Medium Income", "High Income")
+low_income = c("Below $10,000", "$10,000-$19,999", "$20,000-$29,999", "$30,000 - $39,999", "$40,000 - $49,999")
+med_income = c("$50,000 - $59,999", "$60,000- $69,999", "$70,000- $79,999", "$80,000 - $89,999", "$90,000- $99,999", 
+               "$100,000 - $124,999", "$125,000 - $149,999", "150,000 - $199,999")
+high_income = c("$200,000 - $249,999", "$250,000 - $299,999", "$300,000 - $399,999", "$400,000 - $499,999", "$500,000 or more")
+
+recoded_income = factor(length(climate$famincome))
+levels(recoded_income) = c("Low Income", "Med Income", "High Income")
+recoded_income[which(climate$famincome %in% low_income)] = "Low Income"
+recoded_income[which(climate$famincome %in% med_income)] = "Med Income"
+recoded_income[which(climate$famincome %in% high_income)] = "High Income"
+climate = cbind(climate, recoded_income)
+
+logistic_gpa_academicsp_firstg <- glm(gpa_recoded~recoded_income, data=climate[complete.cases(climate[,c("recoded_income", "gpa_recoded")]),], family="binomial") ## G
+summary(logistic_gpa_academicsp_firstg)
+
