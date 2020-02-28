@@ -126,16 +126,17 @@ unique(climate$famincome)
 unique(climate$gpa)
 
 ## Dichotamize GPA to be able to run logistic 
-climate$gpa_recoded <- climate$gpa
-climate$gpa_recoded[which(climate$gpa_recoded  == "3.5 and above")] <- "3 and Above"
-climate$gpa_recoded[which(climate$gpa_recoded  == "3 - 3.49")] <- "3 and Above"
-climate$gpa_recoded[which(climate$gpa_recoded  == "Below 2.49")] <- "Below 3"
-climate$gpa_recoded[which(climate$gpa_recoded  == "2.5 - 2.99")] <- "Below 3"
+climate$gpa_recoded <- factor(length(climate$gpa))
+levels(climate$gpa_recoded) = c("3 and Above", "Below 3")
+climate$gpa_recoded[which(climate$gpa  == "3.5 and above")] <- "3 and Above"
+climate$gpa_recoded[which(climate$gpa  == "3 - 3.49")] <- "3 and Above"
+climate$gpa_recoded[which(climate$gpa  == "Below 2.49")] <- "Below 3"
+climate$gpa_recoded[which(climate$gpa  == "2.5 - 2.99")] <- "Below 3"
 
 #Recoding as 0's and 1's to run logistic
-climate$gpa_recoded[which(climate$gpa_recoded  == "Below 3")] <- 0
-climate$gpa_recoded[which(climate$gpa_recoded  == "3 and Above")] <- 1
-unique(climate$gpa_recoded)
+#climate$gpa_recoded[which(climate$gpa_recoded  == "Below 3")] <- 0
+#climate$gpa_recoded[which(climate$gpa_recoded  == "3 and Above")] <- 1
+#unique(climate$gpa_recoded)
 
 ```
 
@@ -173,6 +174,10 @@ chisq.test(climate$famincome,climate$gpa_recoded) #Yes there is a significant di
 ## Finding row indices that have NA's for GPA_recoded and Political View 
 unique(c(which(is.na(climate$PoliticalView) == TRUE),which(is.na(climate$gpa_recoded) == TRUE)))
 
-logistic_gpa_academicsp <- glm(gpa_recoded~academicsp, data= climate[-unique(c(which(is.na(climate$academicsp) == TRUE),which(is.na(climate$gpa_recoded) == TRUE))),],family="binomial") ## G
+logistic_gpa_academicsp <- glm(gpa_recoded~academicsp, data=climate[complete.cases(climate[,c("academicsp", "gpa_recoded")]),], family="binomial") ## G
+summary(logistic_gpa_academicsp)
 
+#Summary shows academicsp is significant and resid dev. / null dev. = 0.91
+model_pval = 1 - pchisq(5126.8, 5380)
+model_pval #Model is not significant compared to model containing all variables?
 ```
