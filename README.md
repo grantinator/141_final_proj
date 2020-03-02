@@ -57,21 +57,31 @@ Q10 (Academic Satisfaction)
 Q75 (Climate at UCLA is friendly) 
 
 Q76 (Climate at UCLA is prejudiced) 
+
 Q77 (Welcome at UCLA)
-Q78 (Welcome at UCLA)
+
+Q78 (I feel valued/respected by peers/faculty)
+
 Q90 (Various measures that would improve the campus climate at UCLA) ** USEFUL FOR RECOMMENDATIONS
 
 ### 2. Mark All That Apply Scale [We will run analysis on this - like frequency plots] 
 Q61 (what forms of exlusionary behavior are you experiencing)
+
 Q63 (Locations of exlusionary behavior)
 
 ### 3. Ones we need to combine levels and convert to a binary
 Q12 (Personally experienced exlusionary behavior) 
+
 Q80 (I Perceive Tension in REsidence Hall)
+
 Q82 (How accessible are various locations)
+
 Q84 (How respectful climate if for various groups)
+
 Q85 (Respectful climate for different ethnic groups)
+
 Q86 (Before enrollment) 
+
 Q87 (Courses have included sufficient materials, perspectives)
 
 ### Repeated Measures 
