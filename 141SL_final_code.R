@@ -214,4 +214,8 @@ q10[q10 == 0] = NA
 ####### QUESTION 61 #########
 q61 = climate[,grep("Q61", colnames(climate))]
 q61[is.na(q61)] = 0
+       
+####### QUESTION 63 ##########       
+q63 = climate[,grep("Q63", colnames(climate))]
+q63[is.na(q63)] = 0
 
