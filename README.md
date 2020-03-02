@@ -85,3 +85,8 @@ Q87 (Courses have included sufficient materials, perspectives)
 
 ### Repeated Measures 
 Q86 and Q84
+
+### Content to use in Final Report 
+Insights from report : http://campusclimate.ucop.edu/_common/files/pdf-climate/ucla-full-report.pdf?fbclid=IwAR0a6NJ6MIGUqwC4p-iB1a4sgmtpuxS46i_NtPY6eL-PwrcuJ4zJxaCASjc
+Climate, for the purposes of this project is considered “the current attitudes, behaviors, and standards of faculty, staff, administrators and students concerning the level of respect for individual needs, abilities, and potential”  (pg 16) 
+
