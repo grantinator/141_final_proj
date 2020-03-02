@@ -233,7 +233,28 @@ q75[is.na(75)] = 0
 q76 = climate[,grep("Q76", colnames(climate))]
 q76[is.na(76)] = 0
        
-####### QUESTION 85 ##########
+####### QUESTION 80-85 ##########
+q80 = climate[,grep("Q80", colnames(climate))]
+q80[q80 <= 2] = 2
+q80[q80 == 3] = 1
+q80[q80 == 4] = 1
+q80[q80 == 5] = 0
+q80[is.na(q80)] = 0
+
+q82 = climate[,grep("Q82", colnames(climate))]
+q82[q82 <= 2] = 2
+q82[q82 == 3] = 1
+q82[q82 == 4] = 1
+q82[q82 == 5] = 0
+q82[is.na(q82)] = 0
+
+q84 = climate[,grep("Q84", colnames(climate))]
+q84[q84 <= 2] = 2
+q84[q84 == 3] = 1
+q84[q84 == 4] = 1
+q84[q84 == 5] = 0
+q84[is.na(q84)] = 0
+
 q85 = climate[,grep("Q85", colnames(climate))]
 
 q85[q85 <= 2] = 2
@@ -242,6 +263,10 @@ q85[q85 == 4] = 1
 q85[q85 == 5] = 0
 q85[is.na(q85)] = 0
 
-#2 is respectful
-#1 is direspectful
-#0 is don't know
+q87 = climate[,grep("Q87", colnames(climate))]
+
+q87[q87 <= 2] = 2
+q87[q87 == 3] = 1
+q87[q87 == 4] = 1
+q87[q87 == 5] = 0
+q87[is.na(q87)] = 0
