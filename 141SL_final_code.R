@@ -217,13 +217,41 @@ q12[which(is.na(q12) == T),]<- 0
 q12[q12 < 5] <- 1 #experienced
 q12[q12 == 5] <- 0 #Not applicable
        
-####### QUESTION 61 #########
+
+
+####### QUESTION 61 ##########
+```{r}
 q61 = climate[,grep("Q61", colnames(climate))]
 q61[is.na(q61)] = 0
+dim(q61)
+colSums(q61)
+
+## Analysis for Q61
+colSums(q61) %>% sum()
+
+barplot(colSums(q61), las = 3)
+
+## Highest : 4 is derogatory remarks, 14 is racial profiling
+
+```
        
-####### QUESTION 63 ##########       
+###### QUESTION 63 ##########
+```{r}
 q63 = climate[,grep("Q63", colnames(climate))]
 q63[is.na(q63)] = 0
+dim(q63)
+       
+## Analysis for Q63
+colSums(q63)
+
+colSums(q63) %>% sum()
+
+barplot(colSums(q63), las = 3) 
+
+## Highest: 2 is while in class, lab or clinical study 
+## Lowest: 16 is on-campus transportion. ## 11 is athletic facilities 
+
+```
 
 ###### QUESTION 75 ##########
 q75 = climate[,grep("Q75", colnames(climate))]
