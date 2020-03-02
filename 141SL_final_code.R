@@ -255,10 +255,7 @@ reverseScale = function(val) {
 q78 = apply(q78[,-9], 2, reverseScale)
 
 q78[q78 == 0] = NA
-
-       
-
-       
+        
 ####### QUESTION 80-85 ##########
 #2 is respectful
 #1 is direspectful
@@ -271,11 +268,9 @@ q80[q80 == 5] = 0
 q80[is.na(q80)] = 0
 
 q82 = climate[,grep("Q82", colnames(climate))]
-q82[q82 <= 2] = 2
-q82[q82 == 3] = 1
-q82[q82 == 4] = 1
-q82[q82 == 5] = 0
-q82[is.na(q82)] = 0
+q82[q82 <= 2] = 1
+q82[q82 == 3] = 2
+q82[q82 == 4] = 0
 
 q84 = climate[,grep("Q84", colnames(climate))]
 q84[q84 <= 2] = 2
