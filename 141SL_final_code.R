@@ -210,4 +210,8 @@ reverseScale = function(val) {
 q10 = apply(q10[,-9], 2, reverseScale)
 
 q10[q10 == 0] = NA
+       
+####### QUESTION 61 #########
+q61 = climate[,grep("Q61", colnames(climate))]
+q61[is.na(q61)] = 0
 
