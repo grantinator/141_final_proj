@@ -46,3 +46,31 @@ How is the data aggregated? Students worked on it. Not native to school.
 
 1. We are thinking of finding best predictors of Academic satisfaction/High GPA - downside that students in a certain group. Maybe we should focus on different kinds of experiences they need.  
 2. Some sort of predictive model that looks at what kinds of experiences that enhance or depress some of your outcome variables. What seems to be making a difference for everybody? 
+
+
+## Classification of Variables we will be using 
+
+### 1. Agree-Disagree Scale
+
+Q10 (Academic Satisfaction) 
+Q75 (Climate at UCLA is friendly) 
+Q76 (Climate at UCLA is prejudiced) 
+Q77 (Welcome at UCLA)
+Q78 (Welcome at UCLA)
+Q90 (Various measures that would improve the campus climate at UCLA) ** USEFUL FOR RECOMMENDATIONS
+
+### 2. Mark All That Apply Scale [We will run analysis on this - like frequency plots] 
+Q61 (what forms of exlusionary behavior are you experiencing)
+Q63 (Locations of exlusionary behavior)
+
+### 3. Ones we need to combine levels and convert to a binary
+Q12 (Personally experienced exlusionary behavior) 
+Q80 (I Perceive Tension in REsidence Hall)
+Q82 (How accessible are various locations)
+Q84 (How respectful climate if for various groups)
+Q85 (Respectful climate for different ethnic groups)
+Q86 (Before enrollment) 
+Q87 (Courses have included sufficient materials, perspectives)
+
+### Repeated Measures 
+Q86 and Q84
