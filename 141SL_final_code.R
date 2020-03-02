@@ -241,3 +241,7 @@ q85[q85 == 3] = 1
 q85[q85 == 4] = 1
 q85[q85 == 5] = 0
 q85[is.na(q85)] = 0
+
+#2 is respectful
+#1 is direspectful
+#0 is don't know
