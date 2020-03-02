@@ -286,9 +286,8 @@ q85[q85 == 3] = 1
 q85[q85 == 4] = 1
 q85[q85 == 5] = 0
 q85[is.na(q85)] = 0
-
        
-##### QUESTION 85 #######       
+##### QUESTION 87 #######       
 q87 = climate[,grep("Q87", colnames(climate))]
 
 q87[q87 <= 2] = 2
