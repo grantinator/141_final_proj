@@ -53,7 +53,9 @@ How is the data aggregated? Students worked on it. Not native to school.
 ### 1. Agree-Disagree Scale
 
 Q10 (Academic Satisfaction) 
+
 Q75 (Climate at UCLA is friendly) 
+
 Q76 (Climate at UCLA is prejudiced) 
 Q77 (Welcome at UCLA)
 Q78 (Welcome at UCLA)
