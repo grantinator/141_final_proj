@@ -257,9 +257,6 @@ q78 = apply(q78[,-c(3,9)], 2, reverseScale)
 q78[q78 == 0] = NA
         
 ####### QUESTION 80 ##########
-#2 is respectful
-#1 is direspectful
-#0 is don't know
 q80 = climate[,grep("Q80", colnames(climate))]
 q80[q80 <= 2] = 2
 q80[q80 == 3] = 1
