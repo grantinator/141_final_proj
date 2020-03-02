@@ -198,4 +198,10 @@ climate = cbind(climate, recoded_income)
 
 logistic_gpa_income <- glm(gpa_recoded~recoded_income, data=climate[complete.cases(climate[,c("recoded_income", "gpa_recoded")]),], family="binomial") ## G
 summary(logistic_gpa_income)
+       
+#Reverse 
+q10 = climate[,grep("Q10", colnames(climate))]
+reverseScale = function(val) { return(7 - val) }
+q10 = apply(q10[,-9], 2, reverseScale)
+
 
