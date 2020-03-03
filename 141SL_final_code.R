@@ -330,14 +330,23 @@ q86[is.na(q86)] = 0
 
 q85Ethnic = cbind(q85, "ethnicity"=climate$Ethnicity)
 
-AfrAmIntersect = q85Ethnic %>% filter(ethnicity == "African American/Black") %>% select(Q85_A_1) %>% unlist() %>% as.factor()
-AsiAmIntersect = q85Ethnic %>%  filter(ethnicity == "Asian/Asian Am") %>% select(Q85_A_3) %>% unlist() %>% as.factor()
-HisLatIntersect = q85Ethnic %>%  filter(ethnicity == "Hispanic/Latino") %>% select(Q85_A_4) %>% unlist() %>% as.factor()
-WhiteIntersect = q85Ethnic %>% filter(ethnicity == "White") %>% select(Q85_A_7) %>% unlist() %>% as.factor()
+AfrAm = q85Ethnic %>% filter(ethnicity == "African American/Black")
+AfrAmIntersect = AfrAm[,'Q85_A_1'] %>% unlist() %>% as.factor()
+
+AsiAm = q85Ethnic %>%  filter(ethnicity == "Asian/Asian Am")
+AsiAmIntersect = AsiAm[,'Q85_A_3'] %>% unlist() %>% as.factor()
+
+HisLat = q85Ethnic %>%  filter(ethnicity == "Hispanic/Latino") 
+HisLatIntersect = HisLat[,'Q85_A_4'] %>% unlist() %>% as.factor()
+
+White = q85Ethnic %>% filter(ethnicity == "White") 
+WhiteIntersect = White[,'Q85_A_7'] %>% unlist() %>% as.factor()
+
 
 # Plots of above dataframes
-par(mfrow=c(2,2))
+par(mfrow=c(2,2), mar = c(5,4,4,2))
 barplot(table(AfrAmIntersect)/length(AfrAmIntersect), main = "African American Intersect", col = c("darkred", "maroon", "darkgreen"))
 barplot(table(AsiAmIntersect)/length(AsiAmIntersect), main = "Asian American Intersect", col = c("darkred", "maroon", "darkgreen"))
 barplot(table(HisLatIntersect)/length(HisLatIntersect), main = "Hispanic Latino Intersect", col = c("darkred", "maroon", "darkgreen"))
 barplot(table(WhiteIntersect)/length(WhiteIntersect), main = "White Intersect", col = c("darkred", "maroon", "darkgreen"))
+mtext("Self-Percieved Respect for Student's own Ethnicity",side = 3,line = -1, outer = TRUE, cex = 1.0)
