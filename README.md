@@ -3,16 +3,19 @@
 ## Questions to answer: 
 
 1. What variables are most related to someone considering leaving UCLA (leaveUCLA var)
-2. Ideal student profile using GPA as metric
+2. What are the attitudes towards certain topics of campus culture for groups defined by ethnicity, student type, and more
 3. What contributes to students having high academic satisfaction
-4. Which variables contribute the most to academic success at UCLA
-5. Can we build a model to predict a student’s estimated success at UCLA
+4. What can UCLA do to improve student satisfaction and campus culture as well as prevent students from leaving
+5. Can we build a model to predict whether or not a student will consider leaving UCLA
 
 
 ## Things to do 
 
 ### Cleaning up Data : 
-1. Consider flagging and dropping entries that seem to be systematically inaccurate responses by student - like all 1's, all 2's. 
+1. Recoding subquestions in a question to ordinal or binary categorical variables
+2. Recode NAs that represent "no answer" as a level in the factor
+3. Reshape data by groups for subsetted analysis
+
 gpa : ordinal regression - rank categorize, or just dichotomize. recasting optimization/ rank optimization 
 
 chi-square/goodness of fit : when you do  a 4 way. when you hsave 2-3 more significant 
@@ -20,7 +23,7 @@ chi-square/goodness of fit : when you do  a 4 way. when you hsave 2-3 more signi
 2 strongsest predictors may be collinear. start doing efficient 
 
 ### Outcome Variables we are considering
-1. GPA - clustered categorical is hard to model
+1. GPA - Possible ordinal regression
 2. Leaving - Y/N so we can run a logitisic for this 
 
 
