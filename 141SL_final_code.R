@@ -365,3 +365,51 @@ barplot(table(q77$Q77_A_1),main="Learning environment at UCLA is welcoming for s
 
 barplot(table(q77$Q77_A_6),main="Learning environment at UCLA is welcoming for students based on their Gender Identity",col = c("lightblue", "red", "darkgreen"))
 ```
+       
+#### NC VS South Campus ####
+### Q10 Aggregate
+q10Male = climate.clean %>% filter(new_sex == "Male") %>% select(contains("Q10")) %>% rowSums()
+q10Fem = climate.clean %>% filter(new_sex == "Female") %>% select(contains("Q10")) %>% rowSums()
+q10Other = climate.clean %>% filter(new_sex == "Other/Unknown") %>% select(contains("Q10")) %>% rowSums()
+### Male Vs. Female
+t.test(q10Male, q10Fem) #significant
+### Male vs Other/Unknown
+t.test(q10Male, q10Other) #significant
+### Female vs Other/Unknown
+t.test(q10Other, q10Fem) #significant
+
+### Q77
+q77Male = climate.clean %>% filter(new_sex == "Male") %>% select(contains("Q77")) %>% rowSums()
+q77Fem = climate.clean %>% filter(new_sex == "Female") %>% select(contains("Q77")) %>% rowSums()
+q77Other = climate.clean %>% filter(new_sex == "Other/Unknown") %>% select(contains("Q77")) %>% rowSums()
+### Male vs Female
+t.test(q77Male, q77Fem) # !!Not significant
+### Male vs Other/Unknown
+t.test(q77Male, q77Other) # Signficant
+### Female vs Other/Unknown
+t.test(q77Fem, q77Other) # Significant
+
+### Q77
+q77Male = climate.clean %>% filter(new_sex == "Male") %>% select(contains("Q77")) %>% rowSums()
+q77Fem = climate.clean %>% filter(new_sex == "Female") %>% select(contains("Q77")) %>% rowSums()
+q77Other = climate.clean %>% filter(new_sex == "Other/Unknown") %>% select(contains("Q77")) %>% rowSums()
+### Male vs Female
+t.test(q77Male, q77Fem) # !!Not significant
+### Male vs Other/Unknown
+t.test(q77Male, q77Other) # Signficant
+### Female vs Other/Unknown
+t.test(q77Fem, q77Other) # Significant
+
+
+### Q78
+q78Male = climate.clean %>% filter(new_sex == "Male") %>% select(contains("Q78")) %>% rowSums()
+q78Fem = climate.clean %>% filter(new_sex == "Female") %>% select(contains("Q78")) %>% rowSums()
+q78Other = climate.clean %>% filter(new_sex == "Other/Unknown") %>% select(contains("Q78")) %>% rowSums()
+### Male vs Female
+t.test(q78Male, q78Fem) # Significant
+### Male vs Other/Unknown
+t.test(q78Male, q78Other) # Signficant
+### Female vs Other/Unknown
+t.test(q78Fem, q78Other) # Significant
+
+
