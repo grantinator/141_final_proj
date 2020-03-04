@@ -324,7 +324,10 @@ q86[q86 == 3] = 1
 q86[q86 == 4] = 1
 q86[q86 == 5] = 0
 q86[is.na(q86)] = 0
+
        
+       
+climate.clean = data.frame(climate[,1:22],q10,q12,q61,q63,q75,q76,q77,q78,q80,q82,q85)
 ```
 
 
