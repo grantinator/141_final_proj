@@ -328,9 +328,12 @@ q86[is.na(q86)] = 0
 ```
 
 
-# Data Analysis on Fixed Variables
+# Data Analysis on Adjusted Variables
 ```{r}
-       
+
+###### QUESTION 85 #######       
+
+
 # Following dataframes are each ethnicity answering about their perceived racial discrimination about their race at UCLA.
 # So, African Americans answering about experienced discrimination against African Americans at UCLA and so on
 
@@ -356,5 +359,17 @@ barplot(table(AsiAmIntersect)/length(AsiAmIntersect), main = "Asian American Int
 barplot(table(HisLatIntersect)/length(HisLatIntersect), main = "Hispanic Latino Intersect", col = c("darkred", "maroon", "darkgreen"))
 barplot(table(WhiteIntersect)/length(WhiteIntersect), main = "White Intersect", col = c("darkred", "maroon", "darkgreen"))
 mtext("Self-Percieved Respect for Student's own Ethnicity",side = 3,line = -1, outer = TRUE, cex = 1.0)
+```
 
+
+```{r}
+###### QUESTION 77 #######       
+unique(q77$Q77_A_1)
+
+barplot(climate$Q77_A_1)
+table(q77$Q77_A_1)
+
+barplot(table(q77$Q77_A_1),main="Learning environment at UCLA is welcoming for students based on their Age",col = c("lightblue", "red", "darkgreen"))
+
+barplot(table(q77$Q77_A_6),main="Learning environment at UCLA is welcoming for students based on their Gender Identity",col = c("lightblue", "red", "darkgreen"))
 ```
