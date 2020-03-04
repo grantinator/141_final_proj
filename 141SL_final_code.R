@@ -200,7 +200,10 @@ logistic_gpa_income <- glm(gpa_recoded~recoded_income, data=climate[complete.cas
 summary(logistic_gpa_income)
   
        
-       
+ 
+# Variable Manipulation 
+```{r}
+
 ####### QUESTION 10 ########
 q10 = climate[,grep("Q10", colnames(climate))]
 
@@ -209,18 +212,16 @@ reverseScale = function(val) {
 }
 q10 = apply(q10[,-9], 2, reverseScale)
 
-q10[q10 == 0] = NA
+q10[is.na(q10)] = 0
 
 ####### QUESTION 12 ########
 q12 = climate[,grep("Q12", colnames(climate))]
-q12[which(is.na(q12) == T),]<- 0
+q12[which(is.na(q12) == T),] <- 0
 q12[q12 < 5] <- 1 #experienced
 q12[q12 == 5] <- 0 #Not applicable
        
 
-
 ####### QUESTION 61 ##########
-```{r}
 q61 = climate[,grep("Q61", colnames(climate))]
 q61[is.na(q61)] = 0
 dim(q61)
@@ -233,10 +234,9 @@ barplot(colSums(q61), las = 3)
 
 ## Highest : 4 is derogatory remarks, 14 is racial profiling
 
-```
-       
+
 ###### QUESTION 63 ##########
-```{r}
+
 q63 = climate[,grep("Q63", colnames(climate))]
 q63[is.na(q63)] = 0
 dim(q63)
@@ -253,13 +253,15 @@ barplot(colSums(q63), las = 3)
 
 ```
 
+# Variable Manipulation (Continued)
+```{r}
 ###### QUESTION 75 ##########
 q75 = climate[,grep("Q75", colnames(climate))]
-q75[is.na(75)] = 0
+q75[is.na(q75)] = 0
 
 ###### QUESTION 76 ##########
 q76 = climate[,grep("Q76", colnames(climate))]
-q76[is.na(76)] = 0
+q76[is.na(q76)] = 0
        
 ####### QUESTION 77 ##########
 q77 = climate[,grep("Q77", colnames(climate))]
@@ -280,9 +282,9 @@ q78 = climate[,grep("Q78", colnames(climate))]
 reverseScale = function(val) { 
   return(6 - val)    
 }
-q78 = apply(q78[,-c(3,9)], 2, reverseScale)
+q78 = apply(q78[,-c(3,9)], 2, reverseScale) %>% as.data.frame()
 
-q78[q78 == 0] = NA
+q78[is.na(q78)] = 0
         
 ####### QUESTION 80 ##########
 q80 = climate[,grep("Q80", colnames(climate))]
@@ -323,7 +325,11 @@ q86[q86 == 4] = 1
 q86[q86 == 5] = 0
 q86[is.na(q86)] = 0
        
-       
+```
+
+
+# Data Analysis on Fixed Variables
+```{r}
        
 # Following dataframes are each ethnicity answering about their perceived racial discrimination about their race at UCLA.
 # So, African Americans answering about experienced discrimination against African Americans at UCLA and so on
@@ -350,3 +356,5 @@ barplot(table(AsiAmIntersect)/length(AsiAmIntersect), main = "Asian American Int
 barplot(table(HisLatIntersect)/length(HisLatIntersect), main = "Hispanic Latino Intersect", col = c("darkred", "maroon", "darkgreen"))
 barplot(table(WhiteIntersect)/length(WhiteIntersect), main = "White Intersect", col = c("darkred", "maroon", "darkgreen"))
 mtext("Self-Percieved Respect for Student's own Ethnicity",side = 3,line = -1, outer = TRUE, cex = 1.0)
+
+```
