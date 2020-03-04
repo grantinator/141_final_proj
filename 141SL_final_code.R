@@ -314,8 +314,8 @@ q85 = climate[,grep("Q85", colnames(climate))]
 q85[q85 <= 2] = 2
 q85[q85 == 3] = 1
 q85[q85 == 4] = 1
-q85[q85 == 5] = 0
-q85[is.na(q85)] = 0
+q85[q85 == 5] = NA
+q85[is.na(q85)] = NA
 
 q86 = climate[,grep("Q86", colnames(climate))]
 
@@ -331,35 +331,24 @@ q86[is.na(q86)] = 0
 # Data Analysis on Adjusted Variables
 ```{r}
 
-###### QUESTION 85 #######       
-
-
+###### QUESTION 85 #######      
 # Following dataframes are each ethnicity answering about their perceived racial discrimination about their race at UCLA.
 # So, African Americans answering about experienced discrimination against African Americans at UCLA and so on
 
 q85Ethnic = cbind(q85, "ethnicity"=climate$Ethnicity)
 
-AfrAm = q85Ethnic %>% filter(ethnicity == "African American/Black")
-AfrAmIntersect = AfrAm[,'Q85_A_1'] %>% unlist() %>% as.factor()
-
-AsiAm = q85Ethnic %>%  filter(ethnicity == "Asian/Asian Am")
-AsiAmIntersect = AsiAm[,'Q85_A_3'] %>% unlist() %>% as.factor()
-
-HisLat = q85Ethnic %>%  filter(ethnicity == "Hispanic/Latino") 
-HisLatIntersect = HisLat[,'Q85_A_4'] %>% unlist() %>% as.factor()
-
-White = q85Ethnic %>% filter(ethnicity == "White") 
-WhiteIntersect = White[,'Q85_A_7'] %>% unlist() %>% as.factor()
-
+AfrAmIntersect = na.omit(q85Ethnic) %>% filter(ethnicity == "African American/Black") %>% select(Q85_A_1) %>% unlist() %>% as.factor()
+AsiAmIntersect = na.omit(q85Ethnic) %>%  filter(ethnicity == "Asian/Asian Am") %>% select(Q85_A_3) %>% unlist() %>% as.factor()
+HisLatIntersect = na.omit(q85Ethnic) %>%  filter(ethnicity == "Hispanic/Latino") %>% select(Q85_A_4) %>% unlist() %>% as.factor()
+WhiteIntersect = na.omit(q85Ethnic) %>% filter(ethnicity == "White") %>% select(Q85_A_7) %>% unlist() %>% as.factor()
 
 # Plots of above dataframes
-par(mfrow=c(2,2), mar = c(5,4,4,2))
+par(mfrow=c(2,2))
 barplot(table(AfrAmIntersect)/length(AfrAmIntersect), main = "African American Intersect", col = c("darkred", "maroon", "darkgreen"))
 barplot(table(AsiAmIntersect)/length(AsiAmIntersect), main = "Asian American Intersect", col = c("darkred", "maroon", "darkgreen"))
 barplot(table(HisLatIntersect)/length(HisLatIntersect), main = "Hispanic Latino Intersect", col = c("darkred", "maroon", "darkgreen"))
 barplot(table(WhiteIntersect)/length(WhiteIntersect), main = "White Intersect", col = c("darkred", "maroon", "darkgreen"))
-mtext("Self-Percieved Respect for Student's own Ethnicity",side = 3,line = -1, outer = TRUE, cex = 1.0)
-```
+
 
 
 ```{r}
