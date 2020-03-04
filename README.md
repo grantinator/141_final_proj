@@ -93,3 +93,12 @@ Q86 and Q84
 Insights from report : http://campusclimate.ucop.edu/_common/files/pdf-climate/ucla-full-report.pdf?fbclid=IwAR0a6NJ6MIGUqwC4p-iB1a4sgmtpuxS46i_NtPY6eL-PwrcuJ4zJxaCASjc
 Climate, for the purposes of this project is considered “the current attitudes, behaviors, and standards of faculty, staff, administrators and students concerning the level of respect for individual needs, abilities, and potential”  (pg 16) 
 
+
+## Groups and Problems to answer
+
+1. NC vs South Campus :  i) Aggregate of q10, ii) Aggregate of q77 (welcoming classrom), iii) aggregate q78 (classroom setting + valued/respected by peers) 
+
+2. Liberal vs Conservative : i) Aggregate of q10, ii) q12_A_23 Welcoming for political, iii) q77_A_19 (classroom environment), iv) q78_A_ , v) q80 (reslife) , vi) q61 (Isolated or left out when work was required in groups)  
+
+3. Low Income vs High Income 
+
