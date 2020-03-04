@@ -96,9 +96,90 @@ Climate, for the purposes of this project is considered “the current attitudes
 
 ## Groups and Problems to answer
 
-1. NC vs South Campus :  i) Aggregate of q10, ii) Aggregate of q77 (welcoming classrom), iii) aggregate q78 (classroom setting + valued/respected by peers) 
+1. NC vs South Campus :  
+    i) Aggregate of q10 - Academic Satisfaction (Aggregate)
+    ii) Aggregate of q77 - Classroom Environment Welcoming Rating (Aggregate)
+    iii) Aggregate q78 - Classroom Academic and Faculty Satisfaction (Aggregate)
 
-2. Liberal vs Conservative : i) Aggregate of q10, ii) q12_A_23 Welcoming for political, iii) q77_A_19 (classroom environment), iv) q78_A_ , v) q80 (reslife) , vi) q61 (Isolated or left out when work was required in groups)  
+2. Liberal vs Conservative : 
+    i) Aggregate of q10 - Academic Satisfaction (Aggregate)
+    ii) q12_A_23 -  Experienced Exclusion Based on Political Views (Binary Count)
+    iii) q77_A_19 - Classroom Environment Welcoming Rating Based on Political Views     
+                    (Binary Count)
+    iv) q78_A_7 - Encourages Free and Open Discussion of Difficult Topics (Binary Count)
+    v) q80_A_22 - Residence Halls Tension With Regard to Person's Political View (Binary   
+                  Count)
+ 
+3. Low Income vs High Income :
+    i) Aggregate of q10 - Academic Satisfaction (Aggregate)
+    ii) q12_A_30 - Experienced Exclusion Based on Socioeconomic Status (Binary Count)
+    iii) q75_A_16 - Friendliness of Climate for People of High Socioeconomic Status 
+         (1-5 scale)
+    iv) q75_A_17 - Friendliness of Climate for People of Low Socioeconomic Status 
+        (1-5 scale)
+    v) q76_A_6 - Overall Climate Regarding Classism Socioeconomic Status (1-5 Scale)
+    vi) q77_A_23 - Classroom Environment Welcoming Rating for Socioeconomic Status 
+        (Binary Count)
+    vii) Q80_A_26 - Residence Halls Tension With Regard to Person's Socioeconomic Status            (Binary Count)
 
-3. Low Income vs High Income 
+4. International vs Non-International
+    i) Aggregate of q10 - Academic Satisfaction (Aggregate)
+    ii) q12_A_13 - Experienced Exclusion Based on International Status (Binary Count)
+    iii) q75_A_1 - Overall Friendliness of Climate (1-5 Scale)
+    iv) q75_A_13 - Friendliness of Climate for Non-U.S. Citizens(1-5 scale)
+    v) q77_A_9 - Classroom Welcoming based on International Status (Binary Count)
+    vi) q80_A_19 - Residence Halls Tension With Regard to Person's International Status                      (Binary Count)
+
+5. Transfer Students vs Non-Transfer Students
+    i) Aggregate of q10 - Academic Satisfaction (Aggregate)
+    ii) Aggregate of q78 - Classroom Academic and Faculty Satisfaction (Aggregate)
+    iii) Aggregate of q80 - Residence Hall Tension (Aggregate)
+    
+6. Male vs Female
+    i) Aggregate of q10 - Academic Satisfaction (Aggregate)
+    ii) q12_A_10 -  Experienced Exclusion Based on Gender Identity (Binary Count)
+    iii) q75_A_9 - Friendliness of Climate for Men (1-5 Scale)
+    iv) q75_A_10 - Friendliness of Climate for Women (1-5 Scale)
+    v) q76_A_2 - Overall Climate Regarding Sexism (1-5 Scale)
+
+7. Ethnicity - AfrAm, HispLat, AsiAm, White
+    i) Aggregate of q10 - Academic Satisfaction (Aggregate)
+    ii) q12_A_9 - Experienced Exclusion Based on Ethnicity (Binary Count)
+    ii) q76_A_1 - Overall Climate Regarding Racism (1-5 Scale)
+    iii) q80_A_6 - Residence Halls Tension with Regard to Person's Ethnicity 
+                   (Binary Count)
+    iii) Corresponding q85 - Respect Towards Racial Ethnic Backgrounds (Binary Count)
+    
+8. Disabilty
+    i) Aggregate of q10 - Academic Satisfaction (Aggregate)
+    ii) q12_A_21 - Experienced Exclusion Based on Physical Disability (Binary Count)
+    iii) q75_A_3 - Friendliness of Climate for Persons with Disabilities (1-5 Scale)
+    iv) q76_A_8 - Overall Climate Towards Disability (1-5 Scale)
+    v) q77_A_10 - Classroom Welcoming Rating for Learning Disabilities (Binary Count)
+    vi) q77_A_18 - Classroom Welcoming Rating for Physical Disabilities (Binary Count) 
+    vii) q80_A_11 - Residence Halls Tension with Regard to Person's Learning Disability
+                   (Binary Count)
+    viii) q80_A_21 - Residence Halls Tension with Regard to Person's Physical Disability
+                    (Binary Count)      
+    ix) q82 - Location Accesibility (Binary Count)
+    
+ 9. LGBTQ+
+     i) Aggregate of q10 - Academic Satisfaction (Aggregate)
+     ii) q12_A_11 - Experienced Exclusion Based on Gender Expression (Binary Count)
+     iii) q12_A_29 - Experienced Exclusion Based on Sexual Orientation (Binary Count)
+     iv) q75_A_4 - Friendliness of Climate for LGB People (1-5 Scale)
+     v) q75_A_18 - Friendliness of Climate for Transgender People (1-5 Scale)
+     vi) q76_A_3 - Overall Climate Regarding Homophobia (1-5 Scale)
+     vii) q76_A_4 - Overall Climate Regarding Transphobia (1-5 Scale)
+     viii) q77_A_7 - Classroom Welcoming Based on Gender Expression (Binary Count)
+     ix) q77_A_22 - Classroom Welcoming Based on Sexual Orientation (Binary Count)
+     x) q80_A_8 - Residence Halls Tension with Regard to Person's Gender Expression
+                  (Binary Count) 
+     xi) q80_A_25 - Residence Halls Tension with Regard to Person's Sexual Orientation
+                    (Binary Count)              
+                  
+     
+     
+
+
 
