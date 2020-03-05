@@ -200,7 +200,7 @@ logistic_gpa_income <- glm(gpa_recoded~recoded_income, data=climate[complete.cas
 summary(logistic_gpa_income)
   
        
- 
+       
 # Variable Manipulation 
 ```{r}
 
@@ -263,15 +263,14 @@ q75[is.na(q75)] = 0
 q76 = climate[,grep("Q76", colnames(climate))]
 q76[is.na(q76)] = 0
        
-####### QUESTION 77 ##########
+####### QUESTION 77 - MAKE BINARY ##########
 q77 = climate[,grep("Q77", colnames(climate))]
 
 q77[q77 <= 2] = 2
 q77[q77 == 3] = 1
 q77[q77 == 4] = 1
 q77[q77 == 5] = 0
-q77[is.na(q77)] = 0
-       
+
 #2 is agree
 #1 is disagree
 #0 is don't know
@@ -286,29 +285,28 @@ q78 = apply(q78[,-c(3,9)], 2, reverseScale) %>% as.data.frame()
 
 q78[is.na(q78)] = 0
         
-####### QUESTION 80 ##########
+####### QUESTION 80 - MAKE BINARY ##########
 q80 = climate[,grep("Q80", colnames(climate))]
 q80[q80 <= 2] = 2
 q80[q80 == 3] = 1
 q80[q80 == 4] = 1
-q80[q80 == 5] = 0
-q80[is.na(q80)] = 0
+q80[q80 == 5] = NA
 
-###### QUESTION 82 #######       
+###### QUESTION 82 - MAKE BINARY #######       
 q82 = climate[,grep("Q82", colnames(climate))]
 q82[q82 <= 2] = 1
 q82[q82 == 3] = 2
-q82[q82 == 4] = 0
+q82[q82 == 4] = NA
 
-##### QUESTION 84 #######
+##### QUESTION 84- MAKE BINARY #######
 q84 = climate[,grep("Q84", colnames(climate))]
 q84[q84 <= 2] = 2
 q84[q84 == 3] = 1
 q84[q84 == 4] = 1
-q84[q84 == 5] = 0
-q84[is.na(q84)] = 0
+q84[q84 == 5] = NA
 
-##### QUESTION 85 #######
+
+##### QUESTION 85- MAKE BINARY #######
 q85 = climate[,grep("Q85", colnames(climate))]
 
 q85[q85 <= 2] = 2
@@ -317,19 +315,18 @@ q85[q85 == 4] = 1
 q85[q85 == 5] = NA
 q85[is.na(q85)] = NA
 
+##### QUESTION 86 - MAKE BINARY #######
+
 q86 = climate[,grep("Q86", colnames(climate))]
 
 q86[q86 <= 2] = 2
 q86[q86 == 3] = 1
 q86[q86 == 4] = 1
-q86[q86 == 5] = 0
-q86[is.na(q86)] = 0
-
-       
+q86[q86 == 5] = NA
+      
        
 climate.clean = data.frame(climate[,1:22],q10,q12,q61,q63,q75,q76,q77,q78,q80,q82,q85)
 ```
-
 
 # Data Analysis on Adjusted Variables
 ```{r}
