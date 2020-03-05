@@ -101,7 +101,7 @@ Climate, for the purposes of this project is considered “the current attitudes
     ii) Aggregate of q77 - Classroom Environment Welcoming Rating (Aggregate)
     iii) Aggregate q78 - Classroom Academic and Faculty Satisfaction (Aggregate)
 
-2. Liberal vs Conservative : 
+2. Liberal vs Conservative : (Not enough observations for conservative)
     i) Aggregate of q10 - Academic Satisfaction (Aggregate)
     ii) q12_A_23 -  Experienced Exclusion Based on Political Views (Binary Count)
     iii) q77_A_19 - Classroom Environment Welcoming Rating Based on Political Views     
