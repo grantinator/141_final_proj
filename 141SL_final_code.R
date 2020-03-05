@@ -269,7 +269,7 @@ q77 = climate[,grep("Q77", colnames(climate))]
 q77[q77 <= 2] = 2
 q77[q77 == 3] = 1
 q77[q77 == 4] = 1
-q77[q77 == 5] = 0
+q77[q77 == 5] = NA
 
 #2 is agree
 #1 is disagree
@@ -352,18 +352,20 @@ legend(1, 1, legend=c("Disrespectful", "Respectful"), col=c("red", "darkgreen"),
 
  ```
 
+###### QUESTION 77 PLOTS #######       
 
 ```{r}
-###### QUESTION 77 #######       
 unique(q77$Q77_A_1)
 
 barplot(climate$Q77_A_1)
 table(q77$Q77_A_1)
 
-barplot(table(q77$Q77_A_1),main="Learning environment at UCLA is welcoming for students based on their Age",col = c("lightblue", "red", "darkgreen"))
-
-barplot(table(q77$Q77_A_6),main="Learning environment at UCLA is welcoming for students based on their Gender Identity",col = c("lightblue", "red", "darkgreen"))
+par(mfrow=c(1,2))
+barplot(table(na.omit(q77)$Q77_A_1)/length(na.omit(q77)$Q77_A_1),main="Learning environment at UCLA is welcoming for students based on their Age",col = c("red", "lightblue"))
+barplot(table(na.omit(q77)$Q77_A_1)/length(na.omit(q77)$Q77_A_1),main="Learning environment at UCLA is welcoming for students based on their Gender Identity",col = c("red", "lightblue"))
+legend(0.2, 0.8, legend=c("Not Welcoming", "Welcoming"), col=c("red", "lightblue"), lty=1:2, cex=0.8)
 ```
+       
        
 #### NC VS South Campus ####
 ### Q10 Aggregate
