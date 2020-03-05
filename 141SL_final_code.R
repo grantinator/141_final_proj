@@ -413,3 +413,38 @@ t.test(q78Male, q78Other) # Signficant
 t.test(q78Fem, q78Other) # Significant
 
 
+### Ethnicity 
+### Q10
+q10Black = climate.clean %>% filter(Ethnicity == "African American/Black") %>% select(contains("Q10")) %>% rowSums()
+q10Asian = climate.clean %>% filter(Ethnicity == "Asian/Asian Am" ) %>% select(contains("Q10")) %>% rowSums()
+q10Latino = climate.clean %>% filter(Ethnicity == "Hispanic/Latino") %>% select(contains("Q10")) %>% rowSums()
+q10Intl = climate.clean %>% filter(Ethnicity == "International") %>% select(contains("Q10")) %>% rowSums()
+q10Min = climate.clean %>% filter(Ethnicity == "Minority, Multi-Min., URM") %>% select(contains("Q10")) %>% rowSums()
+q10White = climate.clean %>% filter(Ethnicity == "White") %>% select(contains("Q10")) %>% rowSums()
+
+## Black vs Asian
+t.test(q10Black, q10Asian) #Significant
+## Black vs Latino 
+t.test(q10Black, q10Latino) #Significant
+## Black vs Intl
+t.test(q10Black, q10Intl) #Significant
+#Black vs Minority
+t.test(q10Black, q10Min) #significant
+# Black vs white
+t.test(q10Black, q10White) #Significant
+# Asian vs Latino
+t.test(q10Asian, q10Latino) #Significant
+# Asian vs Intnl
+t.test(q10Asian, q10Intl) #Significant
+#Asian vs Minority
+t.test(q10Asian, q10Min) #Significant
+# Asian vs white
+t.test(q10Asian, q10White) #Significant
+# Latino vs Intl
+t.test(q10Latino, q10Intl) #Significant
+# Latino vs Minority
+t.test(q10Latino, q10Min) #Significant
+# Latino vs White
+t.test(q10Latino, q10Min) #significant
+#Min vs White 
+t.test(q10Min, q10White) #significant
