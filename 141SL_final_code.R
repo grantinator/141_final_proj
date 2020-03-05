@@ -413,6 +413,24 @@ t.test(q78Male, q78Other) # Signficant
 ### Female vs Other/Unknown
 t.test(q78Fem, q78Other) # Significant
 
+### Transfer vs four year
+###Q10
+q10Fy = climate.clean %>% filter(UGONLY == "fy") %>% select(contains("Q10")) %>% rowSums()
+q10Transfer = climate.clean %>% filter(UGONLY == "transfer") %>% select(contains("Q10")) %>% rowSums()
+### Left vs right
+t.test(q10Fy, q10Transfer) #significant
+
+###Q78
+q78Fy = climate.clean %>% filter(UGONLY == "fy") %>% select(contains("Q78")) %>% rowSums()
+q78Transfer = climate.clean %>% filter(UGONLY == "transfer") %>% select(contains("Q78")) %>% rowSums()
+### Left vs right
+t.test(q78Fy, q78Transfer) #not significant
+
+###Q80
+q80Fy = climate.clean %>% filter(UGONLY == "fy") %>% select(contains("Q80")) %>% rowSums()
+q80Transfer = climate.clean %>% filter(UGONLY == "transfer") %>% select(contains("Q80")) %>% rowSums()
+### Left vs right
+t.test(q80Fy, q80Transfer) #significant
 
 ### Ethnicity 
 ### Q10
@@ -449,3 +467,146 @@ t.test(q10Latino, q10Min) #Significant
 t.test(q10Latino, q10Min) #significant
 #Min vs White 
 t.test(q10Min, q10White) #significant
+
+### Q12_A_9
+q12Black = climate.clean %>% filter(Ethnicity == "African American/Black") %>% select(contains("Q12_A_9"))
+q12Asian = climate.clean %>% filter(Ethnicity == "Asian/Asian Am" ) %>% select(contains("Q12_A_9"))
+q12Latino = climate.clean %>% filter(Ethnicity == "Hispanic/Latino") %>% select(contains("Q12_A_9"))
+q12Intl = climate.clean %>% filter(Ethnicity == "International") %>% select(contains("Q12_A_9"))
+q12Min = climate.clean %>% filter(Ethnicity == "Minority, Multi-Min., URM") %>% select(contains("Q12_A_9"))
+q12White = climate.clean %>% filter(Ethnicity == "White") %>% select(contains("Q12_A_9"))
+
+## Black vs Asian
+t.test(q12Black, q12Asian) # not Significant
+## Black vs Latino 
+t.test(q12Black, q12Latino) # not Significant
+## Black vs Intl
+t.test(q12Black, q12Intl) # not Significant
+#Black vs Minority
+t.test(q12Black, q12Min) #significant
+# Black vs white
+t.test(q12Black, q12White) #Significant
+# Asian vs Latino
+t.test(q12Asian, q12Latino) # not Significant
+# Asian vs Intnl
+t.test(q12Asian, q12Intl) # not Significant
+#Asian vs Minority
+t.test(q12Asian, q12Min) #Significant
+# Asian vs white
+t.test(q12Asian, q12White) #Significant
+# Latino vs Intl
+t.test(q12Latino, q12Intl) # not Significant
+# Latino vs Minority
+t.test(q12Latino, q12Min) #Significant
+# Latino vs White
+t.test(q12Latino, q12Min) #significant
+#Min vs White 
+t.test(q12Min, q12White) # not Significant
+
+
+### Q76_A_1
+q76Black = climate.clean %>% filter(Ethnicity == "African American/Black") %>% select(contains("Q76_A_1"))
+q76Asian = climate.clean %>% filter(Ethnicity == "Asian/Asian Am" ) %>% select(contains("Q76_A_1"))
+q76Latino = climate.clean %>% filter(Ethnicity == "Hispanic/Latino") %>% select(contains("Q76_A_1"))
+q76Intl = climate.clean %>% filter(Ethnicity == "International") %>% select(contains("Q76_A_1"))
+q76Min = climate.clean %>% filter(Ethnicity == "Minority, Multi-Min., URM") %>% select(contains("Q76_A_1"))
+q76White = climate.clean %>% filter(Ethnicity == "White") %>% select(contains("Q76_A_1"))
+
+## Black vs Asian
+t.test(q76Black, q76Asian) # Significant
+## Black vs Latino 
+t.test(q76Black, q76Latino) # Significant
+## Black vs Intl
+t.test(q76Black, q76Intl) # Significant
+#Black vs Minority
+t.test(q76Black, q76Min) #significant
+# Black vs white
+t.test(q76Black, q76White) #Significant
+# Asian vs Latino
+t.test(q76Asian, q76Latino) # Significant
+# Asian vs Intnl
+t.test(q76Asian, q76Intl) # Significant
+#Asian vs Minority
+t.test(q76Asian, q76Min) #Significant
+# Asian vs white
+t.test(q76Asian, q76White) #Significant
+# Latino vs Intl
+t.test(q76Latino, q76Intl) #Significant
+# Latino vs Minority
+t.test(q76Latino, q76Min) #Significant
+# Latino vs White
+t.test(q76Latino, q76Min) #significant
+#Min vs White 
+t.test(q76Min, q76White) # not Significant
+
+
+### Q80_A_6
+q80Black = climate.clean %>% filter(Ethnicity == "African American/Black") %>% select(contains("Q80_A_6"))
+q80Asian = climate.clean %>% filter(Ethnicity == "Asian/Asian Am" ) %>% select(contains("Q80_A_6"))
+q80Latino = climate.clean %>% filter(Ethnicity == "Hispanic/Latino") %>% select(contains("Q80_A_6"))
+q80Intl = climate.clean %>% filter(Ethnicity == "International") %>% select(contains("Q80_A_6"))
+q80Min = climate.clean %>% filter(Ethnicity == "Minority, Multi-Min., URM") %>% select(contains("Q80_A_6"))
+q80White = climate.clean %>% filter(Ethnicity == "White") %>% select(contains("Q80_A_6"))
+
+## Black vs Asian
+t.test(q80Black, q80Asian) # Significant
+## Black vs Latino 
+t.test(q80Black, q80Latino) # not Significant
+## Black vs Intl
+t.test(q80Black, q80Intl) # Significant
+#Black vs Minority
+t.test(q80Black, q80Min) #significant
+# Black vs white
+t.test(q80Black, q80White) #Significant
+# Asian vs Latino
+t.test(q80Asian, q80Latino) # Significant
+# Asian vs Intnl
+t.test(q80Asian, q80Intl) # not Significant
+#Asian vs Minority
+t.test(q80Asian, q80Min) #Significant
+# Asian vs white
+t.test(q80Asian, q80White) #Significant
+# Latino vs Intl
+t.test(q80Latino, q80Intl) #Significant
+# Latino vs Minority
+t.test(q80Latino, q80Min) #Significant
+# Latino vs White
+t.test(q80Latino, q80Min) #significant
+#Min vs White 
+t.test(q80Min, q80White) # not Significant
+
+
+### Q85
+q85Black = climate.clean %>% filter(Ethnicity == "African American/Black") %>% select(contains("Q85")) %>% rowSums()
+q85Asian = climate.clean %>% filter(Ethnicity == "Asian/Asian Am" ) %>% select(contains("Q85")) %>% rowSums()
+q85Latino = climate.clean %>% filter(Ethnicity == "Hispanic/Latino") %>% select(contains("Q85")) %>% rowSums()
+q85Intl = climate.clean %>% filter(Ethnicity == "International") %>% select(contains("Q85")) %>% rowSums()
+q85Min = climate.clean %>% filter(Ethnicity == "Minority, Multi-Min., URM") %>% select(contains("Q85")) %>% rowSums()
+q85White = climate.clean %>% filter(Ethnicity == "White") %>% select(contains("Q85")) %>% rowSums()
+
+## Black vs Asian
+t.test(q85Black, q85Asian) # Significant
+## Black vs Latino 
+t.test(q85Black, q85Latino) # Significant
+## Black vs Intl
+t.test(q85Black, q85Intl) # Significant
+#Black vs Minority
+t.test(q85Black, q85Min) #significant
+# Black vs white
+t.test(q85Black, q85White) #Significant
+# Asian vs Latino
+t.test(q85Asian, q85Latino) # Significant
+# Asian vs Intnl
+t.test(q85Asian, q85Intl) #Significant
+#Asian vs Minority
+t.test(q85Asian, q85Min) #Significant
+# Asian vs white
+t.test(q85Asian, q85White) #Significant
+# Latino vs Intl
+t.test(q85Latino, q85Intl) #Significant
+# Latino vs Minority
+t.test(q85Latino, q85Min) #Significant
+# Latino vs White
+t.test(q85Latino, q85Min) #significant
+#Min vs White 
+t.test(q85Min, q85White) #Significant
