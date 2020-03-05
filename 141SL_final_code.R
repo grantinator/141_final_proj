@@ -344,11 +344,13 @@ WhiteIntersect = na.omit(q85Ethnic) %>% filter(ethnicity == "White") %>% select(
 
 # Plots of above dataframes
 par(mfrow=c(2,2))
-barplot(table(AfrAmIntersect)/length(AfrAmIntersect), main = "African American Intersect", col = c("darkred", "maroon", "darkgreen"))
-barplot(table(AsiAmIntersect)/length(AsiAmIntersect), main = "Asian American Intersect", col = c("darkred", "maroon", "darkgreen"))
-barplot(table(HisLatIntersect)/length(HisLatIntersect), main = "Hispanic Latino Intersect", col = c("darkred", "maroon", "darkgreen"))
-barplot(table(WhiteIntersect)/length(WhiteIntersect), main = "White Intersect", col = c("darkred", "maroon", "darkgreen"))
+barplot(table(AfrAmIntersect)/length(AfrAmIntersect), main = "African American Perception of UCLA Climate", col = c("red", "darkgreen"))
+barplot(table(AsiAmIntersect)/length(AsiAmIntersect), main = "Asian American Perception of UCLA Climate", col = c("red", "darkgreen"))
+barplot(table(HisLatIntersect)/length(HisLatIntersect), main = "Hispanic Latino Perception of UCLA Climate", col = c("red", "darkgreen"))
+barplot(table(WhiteIntersect)/length(WhiteIntersect), main = "White Perception of UCLA Climate", col = c("red", "darkgreen"))
+legend(1, 1, legend=c("Disrespectful", "Respectful"), col=c("red", "darkgreen"), lty=1:2, cex=0.8)
 
+ ```
 
 
 ```{r}
