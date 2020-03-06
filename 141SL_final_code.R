@@ -673,3 +673,98 @@ q80LowInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Low-Income") %
 q80HiInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Not Low Income") %>% select(contains("Q80_A_26")) %>% rowSums()
 
 t.test(q80LowInc, q80HiInc) #Significant
+       
+       
+
+###### Disability Testing -  Mainly Q82. How accessible is our campus) ###########
+```{r}
+
+## Aggregate of accessibility scores across all locations + course instructions/materials 
+q82_notdisabled <- climate.clean %>% filter(DisabilityIndicator== "No Disability") %>% select(contains("q82")) %>% na.omit() %>% rowSums()
+
+q82_disabled <- climate.clean %>% filter(DisabilityIndicator== "Disability") %>% select(contains("q82")) %>% na.omit() %>% rowSums()
+
+t.test(q82_notdisabled, q82_disabled) # Significant
+
+## Classroom/Lab accessibility
+q82_classlab_disabled <- climate.clean %>% filter(DisabilityIndicator== "Disability") %>% select(contains("q82")) %>% select(Q82_A_3) %>% na.omit() %>% unlist()
+
+q82_classlab_notdisabled <- climate.clean %>% filter(DisabilityIndicator== "No Disability") %>% select(contains("q82")) %>% select(Q82_A_3) %>% na.omit() %>% unlist()
+
+t.test(q82_classlab_disabled, q82_classlab_notdisabled) #Significant
+
+## Course Instruction accessibility
+q82_instruction_disabled <- climate.clean %>% filter(DisabilityIndicator== "Disability") %>% select(contains("q82")) %>% select(Q82_A_22) %>% na.omit() %>% unlist()
+
+q82_instruction_notdisabled <- climate.clean %>% filter(DisabilityIndicator== "No Disability") %>% select(contains("q82")) %>% select(Q82_A_22) %>% na.omit() %>% unlist()
+
+t.test(q82_instruction_disabled, q82_instruction_notdisabled) #Significant
+
+## University Housing
+q82_unihousing_disabled <- climate.clean %>% filter(DisabilityIndicator== "Disability") %>% select(contains("q82")) %>% select(Q82_A_4) %>% na.omit() %>% unlist()
+
+q82_unihousing_notdisabled <- climate.clean %>% filter(DisabilityIndicator== "No Disability") %>% select(contains("q82")) %>% select(Q82_A_4) %>% na.omit() %>% unlist()
+
+t.test(q82_unihousing_disabled, q82_unihousing_notdisabled) #Significant
+
+## Restrooms
+q82_restrooms_disabled <- climate.clean %>% filter(DisabilityIndicator== "Disability") %>% select(contains("q82")) %>% select(Q82_A_16) %>% na.omit() %>% unlist()
+
+q82_restrooms_notdisabled <- climate.clean %>% filter(DisabilityIndicator== "No Disability") %>% select(contains("q82")) %>% select(Q82_A_16) %>% na.omit() %>% unlist()
+
+t.test(q82_restrooms_disabled, q82_restrooms_notdisabled) #Significant
+
+## Walkways and Pedestrian Paths
+q82_walkways_disabled <- climate.clean %>% filter(DisabilityIndicator== "Disability") %>% select(contains("q82")) %>% select(Q82_A_18) %>% na.omit() %>% unlist()
+
+q82_walkways_notdisabled <- climate.clean %>% filter(DisabilityIndicator== "No Disability") %>% select(contains("q82")) %>% select(Q82_A_18) %>% na.omit() %>% unlist()
+
+t.test(q82_walkways_disabled, q82_walkways_notdisabled) #Significant
+
+q75_walkways_disabled <- climate.clean %>% filter(DisabilityIndicator== "Disability") %>% select(contains("q82")) %>% select(Q82_A_18) %>% na.omit() %>% unlist()
+
+q82_walkways_notdisabled <- climate.clean %>% filter(DisabilityIndicator== "No Disability") %>% select(contains("q82")) %>% select(Q82_A_18) %>% na.omit() %>% unlist()
+
+t.test(q82_walkways_disabled, q82_walkways_notdisabled) #Significant
+
+
+## Frequency count of where people are experiencing disability
+q63_disability <- climate.clean %>% filter(DisabilityIndicator== "Disability") %>% select(contains("q63")) %>% colSums()
+
+barplot(q63_disability, las = 3) 
+
+```
+
+
+###### LGBTQ Testing  ###########
+```{r}
+
+## Aggregate of q10 across sexual orientation ##
+
+q10_Hetero = climate.clean %>% filter(orientation == "Heterosexual") %>% select(contains("Q10")) %>% rowSums()
+
+q10_LGBQ = climate.clean %>% filter(orientation == "LGBQ or Other") %>% select(contains("Q10")) %>% rowSums()
+
+t.test(q10_Hetero, q10_LGBQ) # Significant 
+
+
+##  q80_A_25 - Residence Halls Tension with Regard to Person's Sexual Orientation  ##
+
+Q80_A_25_LGBQ <-  climate.clean %>% filter(orientation == "LGBQ or Other") %>% select(Q80_A_25) %>% na.omit() %>% unlist() 
+
+Q80_A_25_hetero <- climate.clean %>% filter(orientation == "Heterosexual") %>% select(Q80_A_25) %>% na.omit() %>% unlist() 
+
+t.test(Q80_A_25_hetero, Q80_A_25_LGBQ) # Significant 
+
+##  q77_A_22 - Classroom Welcoming Based on Sexual Orientation  ##
+
+Q77_A_22_LGBQ <-  climate.clean %>% filter(orientation == "LGBQ or Other") %>% select(Q77_A_22) %>% na.omit() %>% unlist() 
+
+Q77_A_22_hetero <- climate.clean %>% filter(orientation == "Heterosexual") %>% select(Q77_A_22) %>% na.omit() %>% unlist() 
+
+t.test(Q77_A_22_hetero, Q77_A_22_LGBQ) # Significant 
+
+
+```
+
+
