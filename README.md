@@ -110,7 +110,7 @@ Climate, for the purposes of this project is considered “the current attitudes
     v) q80_A_22 - Residence Halls Tension With Regard to Person's Political View (Binary   
                   Count)
  
-3. Low Income vs High Income :
+3. Low Income vs High Income **(Done)**:
     i) Aggregate of q10 - Academic Satisfaction (Aggregate)
     ii) q12_A_30 - Experienced Exclusion Based on Socioeconomic Status (Binary Count)
     iii) q75_A_16 - Friendliness of Climate for People of High Socioeconomic Status 
