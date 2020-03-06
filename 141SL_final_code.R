@@ -126,7 +126,7 @@ unique(climate$famincome)
 unique(climate$gpa)
 
 ## Dichotamize GPA to be able to run logistic 
-climate$gpa_recoded <- factor(length(climate$gpa))
+climate$gpa_recoded <- factor(climate$gpa)
 levels(climate$gpa_recoded) = c("3 and Above", "Below 3")
 climate$gpa_recoded[which(climate$gpa  == "3.5 and above")] <- "3 and Above"
 climate$gpa_recoded[which(climate$gpa  == "3 - 3.49")] <- "3 and Above"
