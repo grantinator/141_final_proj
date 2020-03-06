@@ -96,7 +96,7 @@ Climate, for the purposes of this project is considered “the current attitudes
 
 ## Groups and Problems to answer
 
-1. NC vs South Campus :  
+1. NC vs South Campus (Done) :  
     i) Aggregate of q10 - Academic Satisfaction (Aggregate)
     ii) Aggregate of q77 - Classroom Environment Welcoming Rating (Aggregate)
     iii) Aggregate q78 - Classroom Academic and Faculty Satisfaction (Aggregate)
@@ -122,7 +122,7 @@ Climate, for the purposes of this project is considered “the current attitudes
         (Binary Count)
     vii) Q80_A_26 - Residence Halls Tension With Regard to Person's Socioeconomic Status            (Binary Count)
 
-4. International vs Non-International
+4. International vs Non-International (Kind of done with ethnicity)
     i) Aggregate of q10 - Academic Satisfaction (Aggregate)
     ii) q12_A_13 - Experienced Exclusion Based on International Status (Binary Count)
     iii) q75_A_1 - Overall Friendliness of Climate (1-5 Scale)
@@ -130,19 +130,19 @@ Climate, for the purposes of this project is considered “the current attitudes
     v) q77_A_9 - Classroom Welcoming based on International Status (Binary Count)
     vi) q80_A_19 - Residence Halls Tension With Regard to Person's International Status                      (Binary Count)
 
-5. Transfer Students vs Non-Transfer Students
+5. Transfer Students vs Non-Transfer Students (Done)
     i) Aggregate of q10 - Academic Satisfaction (Aggregate)
     ii) Aggregate of q78 - Classroom Academic and Faculty Satisfaction (Aggregate)
     iii) Aggregate of q80 - Residence Hall Tension (Aggregate)
     
-6. Male vs Female
+6. Male vs Female (Done)
     i) Aggregate of q10 - Academic Satisfaction (Aggregate)
     ii) q12_A_10 -  Experienced Exclusion Based on Gender Identity (Binary Count)
     iii) q75_A_9 - Friendliness of Climate for Men (1-5 Scale)
     iv) q75_A_10 - Friendliness of Climate for Women (1-5 Scale)
     v) q76_A_2 - Overall Climate Regarding Sexism (1-5 Scale)
 
-7. Ethnicity - AfrAm, HispLat, AsiAm, White
+7. Ethnicity - AfrAm, HispLat, AsiAm, White (Done)
     i) Aggregate of q10 - Academic Satisfaction (Aggregate)
     ii) q12_A_9 - Experienced Exclusion Based on Ethnicity (Binary Count)
     ii) q76_A_1 - Overall Climate Regarding Racism (1-5 Scale)
