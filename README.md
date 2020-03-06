@@ -163,7 +163,7 @@ Climate, for the purposes of this project is considered “the current attitudes
                     (Binary Count)      
     ix) q82 - Location Accesibility (Binary Count)
     
- 9. LGBTQ+  _(Done)_
+ 9. LGBTQ+ **(Done)**
      i) Aggregate of q10 - Academic Satisfaction (Aggregate)
      ii) q12_A_11 - Experienced Exclusion Based on Gender Expression (Binary Count)
      iii) q12_A_29 - Experienced Exclusion Based on Sexual Orientation (Binary Count)
