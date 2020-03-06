@@ -367,7 +367,7 @@ legend(0.2, 0.8, legend=c("Not Welcoming", "Welcoming"), col=c("red", "lightblue
 ```
        
        
-#### NC VS South Campus ####
+#### Gender ####
 ### Q10 Aggregate
 q10Male = climate.clean %>% filter(new_sex == "Male") %>% select(contains("Q10")) %>% rowSums()
 q10Fem = climate.clean %>% filter(new_sex == "Female") %>% select(contains("Q10")) %>% rowSums()
@@ -413,7 +413,7 @@ t.test(q78Male, q78Other) # Signficant
 ### Female vs Other/Unknown
 t.test(q78Fem, q78Other) # Significant
 
-### Transfer vs four year
+#### Transfer vs four year ####
 ###Q10
 q10Fy = climate.clean %>% filter(UGONLY == "fy") %>% select(contains("Q10")) %>% rowSums()
 q10Transfer = climate.clean %>% filter(UGONLY == "transfer") %>% select(contains("Q10")) %>% rowSums()
@@ -432,7 +432,7 @@ q80Transfer = climate.clean %>% filter(UGONLY == "transfer") %>% select(contains
 ### Left vs right
 t.test(q80Fy, q80Transfer) #significant
 
-### Ethnicity 
+#### Ethnicity ####
 ### Q10
 q10Black = climate.clean %>% filter(Ethnicity == "African American/Black") %>% select(contains("Q10")) %>% rowSums()
 q10Asian = climate.clean %>% filter(Ethnicity == "Asian/Asian Am" ) %>% select(contains("Q10")) %>% rowSums()
@@ -610,3 +610,66 @@ t.test(q85Latino, q85Min) #Significant
 t.test(q85Latino, q85Min) #significant
 #Min vs White 
 t.test(q85Min, q85White) #Significant
+
+#### North Campus vs South Campus ####
+q10NC = climate.clean %>% filter(NorthCampus == "yes") %>% select(contains("Q10")) %>% rowSums()
+q10SC = climate.clean %>% filter(NorthCampus == "no") %>% select(contains("Q10")) %>% rowSums()
+
+t.test(q10NC, q10SC) #Significant
+
+### Q77
+q77NC = climate.clean %>% filter(NorthCampus == "yes") %>% select(contains("Q77")) %>% rowSums()
+q77SC = climate.clean %>% filter(NorthCampus == "no") %>% select(contains("Q77")) %>% rowSums()
+
+t.test(q77NC, q77SC) #Not Significant
+
+
+### Q78
+q78NC = climate.clean %>% filter(NorthCampus == "yes") %>% select(contains("Q78")) %>% rowSums()
+q78SC = climate.clean %>% filter(NorthCampus == "no") %>% select(contains("Q78")) %>% rowSums()
+
+t.test(q78NC, q78SC) #Significant
+
+#### Low Income vs High Income ####
+
+### Q10
+q10LowInc =q78NC = climate.clean %>% filter(LowFamilyIncomeIndicator == "Low-Income") %>% select(contains("Q10")) %>% rowSums()
+q10HiInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Not Low Income") %>% select(contains("Q10")) %>% rowSums()
+
+t.test(q10LowInc, q10HiInc) #Significant
+
+### Q12_A_30
+q12LowInc =q78NC = climate.clean %>% filter(LowFamilyIncomeIndicator == "Low-Income") %>% select(contains("Q12_A_30")) %>% rowSums()
+q12HiInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Not Low Income") %>% select(contains("Q12_A_30")) %>% rowSums()
+
+t.test(q12LowInc, q12HiInc) #not Significant p-val = 0.98
+
+### Q75_A_16
+q75_16LowInc =q78NC = climate.clean %>% filter(LowFamilyIncomeIndicator == "Low-Income") %>% select(contains("Q75_A_16")) %>% rowSums()
+q75_16HiInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Not Low Income") %>% select(contains("Q75_A_16")) %>% rowSums()
+
+t.test(q75_16LowInc, q75_16HiInc) #Significant
+
+### Q75_A_17
+q75_17LowInc =q78NC = climate.clean %>% filter(LowFamilyIncomeIndicator == "Low-Income") %>% select(contains("Q75_A_17")) %>% rowSums()
+q75_17HiInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Not Low Income") %>% select(contains("Q75_A_17")) %>% rowSums()
+
+t.test(q75_17LowInc, q75_17HiInc) #Significant
+
+### Q76_A_6
+q76LowInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Low-Income") %>% select(contains("Q76_A_6")) %>% rowSums()
+q76HiInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Not Low Income") %>% select(contains("Q76_A_6")) %>% rowSums()
+
+t.test(q76LowInc, q76HiInc) #Significant
+
+### Q77_A_23
+q77LowInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Low-Income") %>% select(contains("Q77_A_23")) %>% rowSums()
+q77HiInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Not Low Income") %>% select(contains("Q77_A_23")) %>% rowSums()
+
+t.test(q77LowInc, q77HiInc) #Significant
+
+### Q80_A_26
+q80LowInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Low-Income") %>% select(contains("Q80_A_26")) %>% rowSums()
+q80HiInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Not Low Income") %>% select(contains("Q80_A_26")) %>% rowSums()
+
+t.test(q80LowInc, q80HiInc) #Significant
