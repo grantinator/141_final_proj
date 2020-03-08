@@ -767,4 +767,83 @@ t.test(Q77_A_22_hetero, Q77_A_22_LGBQ) # Significant
 
 ```
 
+#### Transfer vs four year ####
+```{r}
+###Q10
+q10Fy = climate.clean %>% filter(UGONLY == "fy") %>% select(contains("Q10")) %>% rowSums()
+q10Transfer = climate.clean %>% filter(UGONLY == "transfer") %>% select(contains("Q10")) %>% rowSums()
+### Left vs right
+t.test(q10Fy, q10Transfer) #significant
 
+###Q78
+q78Fy = climate.clean %>% filter(UGONLY == "fy") %>% select(contains("Q78")) %>% rowSums()
+q78Transfer = climate.clean %>% filter(UGONLY == "transfer") %>% select(contains("Q78")) %>% rowSums()
+### Left vs right
+t.test(q78Fy, q78Transfer) #not significant
+
+###Q80
+q80Fy = climate.clean %>% filter(UGONLY == "fy") %>% select(contains("Q80")) 
+q80Transfer = climate.clean %>% filter(UGONLY == "transfer") %>% select(contains("Q80")) 
+### Left vs right
+t.test(q80Fy, q80Transfer) #significant
+
+summary_fy <- apply(q80Fy,2,table)
+sum(summary_fy[1,]) / sum(sum(summary_fy[2,]),sum(summary_fy[1,]))
+sum(summary_fy[2,]) /sum(sum(summary_fy[2,]),sum(summary_fy[1,]))
+
+summary_fy_prop <- sort(unlist(summary_fy[2,]/sum(summary_fy[2,])))*100
+
+summary_transfers <- apply(q80Transfer,2,table)
+sum(summary_transfers[1,]) / sum(sum(summary_transfers[2,]),sum(summary_transfers[1,]))
+sum(summary_transfers[2,]) /sum(sum(summary_transfers[2,]),sum(summary_transfers[1,]))
+
+max(summary_transfers[,2])
+
+summary_fy_transfer <- unlist(summary_transfers[2,]/sum(summary_transfers[2,]))*100
+
+library(ggplot2)
+
+barplot(summary_fy[2,])
+barplot(transfers)
+
+summary_fy[2,]/ summary_transfers[2]
+data.frame(fy=summary_fy[2,], ty = summary_transfers[2])
+
+question <- row.names(cbind(summary_fy_prop,summary_fy_transfer))
+side.bar = data.frame(rep(question,2),
+           c(rep("Non-Transfer",26),rep("Transfer",26)),
+           c(summary_fy_prop,summary_fy_transfer))
+
+colnames(side.bar) <- c("Question", "Student Type", "Proportion")
+str(side.bar)
+
+bar.side <- data.frame(rbind(
+side.bar[c(1,27),],
+side.bar[c(2,28),],
+side.bar[c(3,29),],
+side.bar[c(4,30),],
+side.bar[c(5,31),],
+side.bar[c(6,32),],
+side.bar[c(7,33),],
+side.bar[c(8,34),],
+side.bar[c(9,35),],
+side.bar[c(10,36),],
+side.bar[c(11,37),],
+side.bar[c(12,38),],
+side.bar[c(13,39),],
+side.bar[c(14,40),],
+side.bar[c(15,41),],
+side.bar[c(16,42),],
+side.bar[c(17,43),],
+side.bar[c(18,44),],
+side.bar[c(19,45),],
+side.bar[c(20,46),],
+side.bar[c(21,47),],
+side.bar[c(22,48),],
+side.bar[c(23,49),],
+side.bar[c(24,50),],
+side.bar[c(25,51),],
+side.bar[c(26,52),]
+))
+
+bar.side
