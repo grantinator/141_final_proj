@@ -216,7 +216,7 @@ q10[is.na(q10)] = 0
 
 ####### QUESTION 12 ########
 q12 = climate[,grep("Q12", colnames(climate))]
-q12[which(is.na(q12) == T),] <- 0
+q12[is.na(q12)] <- 0
 q12[q12 < 5] <- 1 #experienced
 q12[q12 == 5] <- 0 #Not applicable
        
