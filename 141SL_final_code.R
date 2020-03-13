@@ -823,3 +823,151 @@ ggplot(side.bar,aes(fill=`Student Type`,y=Proportion, x= Question))+ geom_bar(st
 
 ```
 
+
+#### Transfer vs four year Visualization ####
+
+```{r}
+
+summary_fy <- apply(q80Fy,2,table)
+sum(summary_fy[1,]) / sum(sum(summary_fy[2,]),sum(summary_fy[1,]))
+sum(summary_fy[2,]) /sum(sum(summary_fy[2,]),sum(summary_fy[1,]))
+
+summary_fy_prop <- sort(unlist(summary_fy[2,]/sum(summary_fy[2,])))*100
+
+summary_transfers <- apply(q80Transfer,2,table)
+sum(summary_transfers[1,]) / sum(sum(summary_transfers[2,]),sum(summary_transfers[1,]))
+sum(summary_transfers[2,]) /sum(sum(summary_transfers[2,]),sum(summary_transfers[1,]))
+
+max(summary_transfers[,2])
+
+summary_fy_transfer <- unlist(summary_transfers[2,]/sum(summary_transfers[2,]))*100
+
+library(ggplot2)
+
+barplot(summary_fy[2,])
+barplot(transfers)
+
+summary_fy[2,]/ summary_transfers[2]
+data.frame(fy=summary_fy[2,], ty = summary_transfers[2])
+
+question <- row.names(cbind(summary_fy_prop,summary_fy_transfer))
+side.bar = data.frame(rep(question,2),
+           c(rep("Non-Transfer",26),rep("Transfer",26)),
+           c(summary_fy_prop,summary_fy_transfer))
+
+colnames(side.bar) <- c("Question", "Student Type", "Proportion")
+str(side.bar)
+
+ggplot(side.bar,aes(fill=`Student Type`,y=Proportion, x= Question))+ geom_bar(stat = "identity",position = "dodge")+theme(axis.text.x = element_text(angle=90,hjust = 1))
+
+## Selecting only the ones that have the greatest difference ##
+side.bar.subset = side.bar[which(side.bar$Question=="Q80_A_5"|side.bar$Question=="Q80_A_14"|side.bar$Question=="Q80_A_12"|side.bar$Question=="Q80_A_3"|side.bar$Question=="Q80_A_6" ), ]
+
+side.bar.subset$Question <- recode(side.bar.subset$Question, Q80_A_5 = "English proficiency",Q80_A_14 = "Military/veteran status",Q80_A_12="Marital status",Q80_A_3="Country of origin",Q80_A_6= "Ethnicity",Q80_A_10="International Status ",Q80_A_22= "Political views")
+
+
+ggplot(side.bar.subset,aes(fill=`Student Type`,y=Proportion, x= Question))+ geom_bar(stat = "identity",position = "dodge", color="Black")+scale_fill_manual(values=c("mediumblue", "lightblue"))+ theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1),plot.title = element_text(color="Black", size=16, face="bold.italic"),axis.text=element_text(size=12), axis.title=element_text(size=14))+ylab("Percentage of Responses")+xlab(" Demographic Factor") + labs(title = "Factors Influencing Perceived Residence Hall Tension") 
+
+
+```
+
+## Disability and accessibility plots ##
+
+```{r}
+q82_disabled <- climate.clean %>% filter(DisabilityIndicator== "Disability") %>% na.omit()
+
+summary_dis <- apply(disabled,2,table)[c(2,4), -c(13:15)]
+
+as.vector(summary_dis[1,] / apply(summary_dis,2,sum))
+
+row.names(summary_dis) = c("Fully Accessible", "Accesible with Accomodations")
+
+colnames(summary_dis)<- c("Athletic Facilities","Off-Campus UCLA Buildings",
+                          "Off-Campus Student Housing","On-Campus Transportation/Parking", "Other Campus Buildings", "Recreational Facilities" ,"Restrooms"
+,"Studios/Performing Arts Spaces"
+,"Walkways and Pedestrian Paths"
+,"Braille Signage"
+, "Hearing Loops","Classroom Buildings","Classrooms"
+,"University Housing"
+,"Computer Labs"
+,"Dining Facilities"
+,"Elevators"
+,"Health and Wellness Centers"
+,"Library")
+
+access.df <- data.frame(
+              rbind(
+                cbind(rep(c("Fully Accessible"),19), colnames(summary_dis)) , 
+                cbind(rep(c("Accessible with Accomodations"),19), 
+                              colnames(summary_dis))
+                    )
+                )
+
+count <- c(as.vector(summary_dis[1,]),as.vector(summary_dis[2,]))
+
+access.dis.df = data.frame(access.df,count) 
+
+colnames(access.dis.df) <- c("Accessibility", "Location","Number of Responses")
+
+ggplot(data=access.dis.df, aes(x=Location, y=`Number of Responses`, fill=Accessibility)) +
+  geom_bar(stat="identity",color = "Black") + 
+  scale_fill_brewer(palette="Paired")+
+  theme_minimal() + theme(axis.text.x = element_text(angle = 90, hjust = 1),plot.title = element_text(color="Black", size=14, face="bold.italic")) +   ggtitle("Accessibility by Location for Students with Disabilities")
+
+prop = as.vector(summary_dis[1,]) / as.vector(apply(summary_dis,2,sum))*100
+colnames(prop) <-  c("Athletic Facilities","Off-Campus UCLA Buildings",
+                     "Off-Campus Student Housing","On-Campus 
+                     Transportation/Parking", "Other Campus Buildings", 
+                     "Recreational Facilities" ,"Restrooms",
+                     "Studios/Performing Arts Spaces", 
+                     "Walkways and Pedestrian Paths","Braille Signage", 
+                     "Hearing Loops","Classroom Buildings","Classrooms",
+                     "University Housing","Computer Labs","Dining Facilities",
+                     "Elevators","Health and Wellness Centers","Library")
+
+
+summary_inaccess <- data.frame(apply(disabled,2,table)[c(3), -c(13:15)], Location)
+
+Location <- c("Athletic Facilities","Off-Campus UCLA Buildings",
+                     "Off-Campus Student Housing","On-Campus 
+                     Transportation/Parking", "Other Campus Buildings", 
+                     "Recreational Facilities" ,"Restrooms",
+                     "Studios/Performing Arts Spaces", 
+                     "Walkways and Pedestrian Paths","Braille Signage", 
+                     "Hearing Loops","Classroom Buildings","Classrooms",
+                     "University Housing","Computer Labs","Dining Facilities",
+                     "Elevators","Health and Wellness Centers","Library")
+
+colnames(summary_inaccess)[1] = "Number of Responses"
+summary_inaccess
+
+ggplot(data=summary_inaccess, aes(x=Location, y=`Number of Responses`)) +
+  geom_bar(stat="identity",color= "Black", fill = "lightblue") + 
+  theme_minimal() + theme(axis.text.x = element_text(angle = 90, hjust = 1),plot.title = element_text(color="Black", size=14, face="bold.italic")) +   ggtitle("Inaccessibility of Locations for Students with Disabilities")
+```
+
+
+```{r}
+q80
+
+is.na(q82) <- 0
+
+sum(q80=="NA",na.rm=TRUE)
+
+table(climate$Q80_A_14)
+
+dim(climate.clean)
+dim(climate)
+```
+
+
+```{r}
+
+q76LowInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Low-Income") %>% select(contains("Q76_A_6")) %>% table() %>% as.vector
+q76HiInc = climate.clean %>% filter(LowFamilyIncomeIndicator == "Not Low Income") %>% select(contains("Q76_A_6"))%>% table() %>% as.vector
+
+c(q76LowInc,q76HiInc)
+
+
+```
+
